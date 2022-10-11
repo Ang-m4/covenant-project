@@ -12,7 +12,7 @@ app.set("port", 4000);
 // middleware
 
 app.use(morgan("dev"));
-
+app.use(express.json());
 // routes
 
 app.use("/api/users",userRoutes);
