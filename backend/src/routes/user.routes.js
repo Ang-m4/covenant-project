@@ -3,7 +3,9 @@ import { methods as userController } from "../controllers/user.controller";
 
 const router = Router();
 
-router.get("/", userController.getUsers);
-router.post("/", userController.createUser);
+router.get("/list", userController.getUsers);
+router.post("/add", userController.createUser);
+router.get("/:id", userController.getUserById);
+router.delete("/:id", userController.deleteUser);
 
 export default router;

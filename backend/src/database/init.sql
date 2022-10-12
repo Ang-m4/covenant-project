@@ -123,34 +123,27 @@ INSERT INTO Segments (name, sectorId) VALUES ('Colegio', 2);
 INSERT INTO Segments (name, sectorId) VALUES ('Universidad', 2);
 INSERT INTO Segments (name, sectorId) VALUES ('Instituto Tecnológico', 2);
 INSERT INTO Segments (name, sectorId) VALUES ('Instituto de Formación Técnica', 2);
-
 INSERT INTO Segments (name, sectorId) VALUES ('Hospital', 3);
 INSERT INTO Segments (name, sectorId) VALUES ('Clínica', 3);
 INSERT INTO Segments (name, sectorId) VALUES ('Centro de Salud', 3);
 INSERT INTO Segments (name, sectorId) VALUES ('Centro de Atención Primaria', 3);
-
 INSERT INTO Segments (name, sectorId) VALUES ('Policía', 4);
 INSERT INTO Segments (name, sectorId) VALUES ('Ejército', 4);
 INSERT INTO Segments (name, sectorId) VALUES ('Bomberos', 4);
 INSERT INTO Segments (name, sectorId) VALUES ('Guardia Nacional', 4);
-
 INSERT INTO Segments (name, sectorId) VALUES ('Parque Nacional', 5);
 INSERT INTO Segments (name, sectorId) VALUES ('Reserva Natural', 5);
 INSERT INTO Segments (name, sectorId) VALUES ('Reserva Forestal', 5);
 INSERT INTO Segments (name, sectorId) VALUES ('Reserva de Fauna', 5);
-
 INSERT INTO Segments (name, sectorId) VALUES ('Planeacion vial', 6);
 INSERT INTO Segments (name, sectorId) VALUES ('Planeacion urbana', 6);
-
 INSERT INTO Segments (name, sectorId) VALUES ('Aeropuerto', 7);
 INSERT INTO Segments (name, sectorId) VALUES ('Puerto', 7);
 INSERT INTO Segments (name, sectorId) VALUES ('Terminal de transporte', 7);
-
 INSERT INTO Segments (name, sectorId) VALUES ('Museo', 8);
 INSERT INTO Segments (name, sectorId) VALUES ('Teatro', 8);
 INSERT INTO Segments (name, sectorId) VALUES ('Cine', 8);
 INSERT INTO Segments (name, sectorId) VALUES ('Biblioteca', 8);
-
 INSERT INTO Segments (name, sectorId) VALUES ('Estadio', 9);
 INSERT INTO Segments (name, sectorId) VALUES ('Piscina', 9);
 INSERT INTO Segments (name, sectorId) VALUES ('Gimnasio', 9);
@@ -162,10 +155,8 @@ INSERT INTO Segments (name, sectorId) VALUES ('Centro de desarrollo científico'
 INSERT INTO Segments (name, sectorId) VALUES ('Televisión', 11);
 INSERT INTO Segments (name, sectorId) VALUES ('Radio', 11);
 INSERT INTO Segments (name, sectorId) VALUES ('Prensa', 11);
-
 INSERT INTO Segments (name, sectorId) VALUES ('Hotel', 12);
 INSERT INTO Segments (name, sectorId) VALUES ('Hostal', 12);
-
 INSERT INTO Segments (name, sectorId) VALUES ('Empresa Privada', 1);
 INSERT INTO Segments (name, sectorId) VALUES ('Institución', 1);
 INSERT INTO Segments (name, sectorId) VALUES ('Organización', 1);
@@ -173,5 +164,5 @@ INSERT INTO Segments (name, sectorId) VALUES ('Comercio', 1);
 
 INSERT INTO Users (name, email, password, roleId, segmentId, departamentId) VALUES ('Juan Garcia', 'juan@abc.com', '123', 1, null, null);
 INSERT INTO Users (name, email, password, roleId, segmentId, departamentId) VALUES ('Maria Perez', 'maria@abc.com','123', 4,  null, null);
--- INSERT INTO Users (name, email, password, roleId, segmentId, departamentId) VALUES ('Pedro Lopez', 'pedro@abc.com','123', 4, null, null);
--- INSERT INTO Users (name, email, password, roleId, segmentId, departamentId) VALUES ('DNP', 'dnp@abc.gov.co','123', 3, null, null);
+INSERT INTO Users (name, email, password, roleId, segmentId, departamentId) VALUES ('Pedro Lopez', 'pedro@abc.com','123', 4, null, null);
+INSERT INTO Users (name, email, password, roleId, segmentId, departamentId) VALUES ('DNP', 'dnp@abc.gov.co','123', 3, null, null);

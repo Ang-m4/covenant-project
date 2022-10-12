@@ -1,5 +1,4 @@
 import express from "express";
-import { defaultConfiguration } from "express/lib/application";
 import morgan from "morgan";
 
 import userRoutes from "./routes/user.routes"
@@ -15,6 +14,6 @@ app.use(morgan("dev"));
 app.use(express.json());
 // routes
 
-app.use("/api/users",userRoutes);
+app.use("/api/users", userRoutes);
 
 export default app;
