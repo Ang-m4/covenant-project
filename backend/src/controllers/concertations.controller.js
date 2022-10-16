@@ -19,7 +19,7 @@ const getConcertations = async(req, res) => {
 
     try {
         const connection = await getConnection();
-        const result = await connection.query('SELECT * FROM concertations');
+        const result = await connection.query('SELECT name, isOpen, s.id as sector, apertureDate, v.id as votationPhase FROM concertations c INNER JOIN Sectors s ON c.sectorId = s.id INNER JOIN VotationPhases v ON c.votationPhaseId = v.id');
         res.status(200).json(result);
 
     } catch (error) {
@@ -54,7 +54,7 @@ const getConcertationById = async(req, res) => {
     try {
         const connection = await getConnection();
         const { id } = req.params;
-        const result = await connection.query('SELECT * FROM concertations WHERE id = ?', [id]);
+        const result = await connection.query('SELECT name, isOpen, s.id as sector, apertureDate, v.id as votationPhase FROM concertations c INNER JOIN Sectors s ON c.sectorId = s.id INNER JOIN VotationPhases v ON c.votationPhaseId = v.id WHERE c.id = ?', [id]);
         res.status(200).json(result);
 
     } catch (error) {
