@@ -1,0 +1,56 @@
+<div class="container">
+
+  <div class="d-flex align-items-center h-custom-2 px-5 ms-xl-4 mt-5 pt-5 pt-xl-0 mt-xl-n5">
+
+    <form [formGroup]="formSignUp" style="width: 23rem;">
+
+      <h3 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Registrate</h3>
+
+      <div class="form-outline mb-2">
+        <input type="email" id="form2Example18" class="form-control form-control-md" formControlName="name" />
+        <label class="form-label" for="form2Example18">Nombre</label>
+      </div>
+
+      <div class="form-outline mb-2">
+        <input type="email" id="form2Example181" class="form-control form-control-md" formControlName="email"/>
+        <label class="form-label" for="form2Example18">Correo</label>
+      </div>
+
+      <div class="form-outline mb-2">
+        <select  type="" class="form-control form-control-md" formControlName="departmentId">
+          <option selected value="...">...</option>
+          <option *ngFor="let dep of departments" [value]="dep.id">{{dep.name}}</option>
+        </select>
+        <label class="form-label" for="form2Example18">Departamento</label>
+      </div>
+
+      <div class="form-outline mb-2">
+        <select  type=""  class="form-control form-control-md" formControlName="roleId">
+          <option value=4>Experto</option>
+          <option selected value=2>Actor</option>
+        </select>
+        <label class="form-label" for="form2Example18">Rol</label>
+      </div>
+
+      <div class="form-outline mb-2">
+        <select type="" class="form-control form-control-md" formControlName="segmentId" >
+          <option selected value=...>...</option>
+          <option *ngFor="let segment of segments" [value]="segment.id">{{segment.segmentName}}</option>
+        </select>
+        <label class="form-label" for="form2Example18">Segmento</label>
+      </div>
+
+      <div class="form-outline mb-2">
+        <input type="password" id="form2Example28" class="form-control form-control-md" formControlName="password"/>
+        <label class="form-label" for="form2Example28">Contraseña</label>
+      </div>
+
+      <div class="pt-1 mb-4">
+        <button class="btn btn-dark btn-lg btn-block" type="button" (click)="saveUser()">Registrarme</button>
+      </div>
+
+      <p>Ya tienes cuenta? <a href="/login" class="link-dark"> Inicia Sesion</a></p>
+
+    </form>
+
+  </div>

@@ -1,4 +1,4 @@
--- Active: 1665423805265@@127.0.0.1@3306@covenant_database
+-- Active: 1668645562898@@127.0.0.1@3306@covenant_database
 DROP TABLE Proposals;
 DROP TABLE Users;
 DROP TABLE Departments;

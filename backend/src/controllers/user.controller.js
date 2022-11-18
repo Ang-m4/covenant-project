@@ -2,6 +2,8 @@ import { getConnection } from "./../database/database"
 
 const getUsers = async (req, res) => {
 
+    console.log(1);
+
     try {
         const connection = await getConnection();
         const result = await connection.query('SELECT u.name, u.email, u.password, r.roleName AS role, d.name as department, s.segmentName as segment FROM users u INNER JOIN Roles r ON u.roleId = r.id INNER JOIN Segments s ON u.segmentId = s.id INNER JOIN Departments d ON u.departmentId = d.id');
@@ -70,9 +72,39 @@ const deleteUser = async (req, res) => {
 
 };
 
+const getDepartments = async (req, res) => {
+
+    try {
+        const connection = await getConnection();
+        const result = await connection.query('SELECT * FROM Departments');
+        console.log(result);
+        res.status(200).json(result);
+
+    } catch (error) {
+        res.status(500);
+        res.send(error.message);
+    }
+}
+
+const getSegments = async (req, res) => {
+
+    try {
+        const connection = await getConnection();
+        const result = await connection.query('SELECT * FROM Segments');
+        console.log(result);
+        res.status(200).json(result);
+
+    } catch (error) {
+        res.status(500);
+        res.send(error.message);
+    }
+}
+
 export const methods = {
     getUsers,
     createUser,
     getUserById,
-    deleteUser
+    deleteUser,
+    getDepartments,
+    getSegments
 };
