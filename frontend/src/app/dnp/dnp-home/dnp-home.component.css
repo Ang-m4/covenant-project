@@ -1,0 +1,32 @@
+.container {
+  margin-top: 5vh;
+  width: 60%;
+}
+
+.concertation-display {
+  height: 80vh;
+}
+
+.concertation-list {
+  height: 75vh;
+  overflow-y: scroll;
+}
+
+.accordion-item {
+  border: 1px solid rgba(21, 21, 21, 0.248);
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: rgba(27, 27, 27, 0.23);
+  color:black
+}
+
+.accordion-button:not(.collapsed)::after {
+  filter:brightness(0%)
+}
+
+.accordion-button:focus{
+  box-shadow: none;
+}
+
+

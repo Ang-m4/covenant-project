@@ -53,6 +53,7 @@ CREATE TABLE VotationPhases(
 CREATE TABLE Concertation(
     id int AUTO_INCREMENT,
     name varchar(255),
+    description varchar(2000),
     isOpen boolean,
     sectorId int,
     votationPhaseId int,
@@ -68,7 +69,10 @@ CREATE TABLE Proposals (
     votationPhaseId int,
     userId int,
     departmentId int,
+    concertationId int,
+    score int,
     PRIMARY KEY (id),
+    FOREIGN KEY(concertationId) REFERENCES Concertation(id),
     FOREIGN KEY(votationPhaseId) REFERENCES VotationPhases(id),
     FOREIGN KEY(userId) REFERENCES Users(id),
     FOREIGN KEY(departmentId) REFERENCES Departments(id)

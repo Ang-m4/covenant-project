@@ -6,8 +6,9 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { UserHomeComponent } from './user-home/user-home.component';
-import { DnpHomeComponent } from './dnp-home/dnp-home.component';
+import { DnpHomeComponent } from './dnp/dnp-home/dnp-home.component';
 import { ExpertHomeComponent } from './expert-home/expert-home.component';
+import { DnpCreateConcertationComponent } from './dnp/dnp-create-concertation/dnp-create-concertation.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { ExpertHomeComponent } from './expert-home/expert-home.component';
     RegisterComponent,
     UserHomeComponent,
     DnpHomeComponent,
-    ExpertHomeComponent
+    ExpertHomeComponent,
+    DnpCreateConcertationComponent
   ],
   imports: [
     BrowserModule,

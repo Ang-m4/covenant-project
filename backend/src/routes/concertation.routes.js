@@ -4,6 +4,7 @@ import { methods as concertationController } from "../controllers/concertations.
 const router = Router();
 
 router.get("/:id/proposals", concertationController.getProposalsByConcertation);
+router.get("/sectors", concertationController.getSectors);
 router.get("/list", concertationController.getConcertations);
 router.post("/add", concertationController.createConcertation);
 router.get("/:id", concertationController.getConcertationById);

@@ -1,0 +1,83 @@
+<div class="container-fluid">
+
+  <div class="container">
+
+    <div class="row">
+      <div class="col col-md-4">
+        <h5> Concertationes: </h5>
+      </div>
+
+      <div class="col col-md-8">
+        <h5> Descripcion: </h5>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col col-md-4 ">
+
+        <ul class="list-group concertation-list">
+          <button *ngFor="let concertation of concertations"
+            class="list-group-item list-group-item-dark list-group-item-action"
+            (click)="changeSelectedConcertation(concertation)">{{concertation.name}}</button>
+
+        </ul>
+        <div class="col col-md-3">
+          <button type="button" class="btn btn-dark float-rigth" (click)="navigateToCreate()">Nueva</button>
+        </div>
+      </div>
+
+      <div class="col col-md-8 ">
+        <div class="card concertation-display">
+          <h5 class="card-header">Nombre: {{selectedConcertation.name}}</h5>
+          <div class="card-body" style="overflow: auto;">
+            <p class="card-text">{{selectedConcertation.description}}</p>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item"><b>Sector: </b> {{selectedConcertation.sector}}</li>
+              <li class="list-group-item"><b>Fecha Creada: </b>{{selectedConcertation.apertureDate}}</li>
+              <li class="list-group-item"><b>Fase de votacion: </b>{{selectedConcertation.votationPhase}}</li>
+              <li class="list-group-item"><b>Es abierta: </b>{{selectedConcertation.isOpen}}</li>
+            </ul>
+            <hr>
+            <h6><b>Propuestas:</b></h6>
+
+            <div class="accordion accordion" id="accordionFlushExample">
+
+              <div *ngFor="let proposal of proposals" class="accordion-item">
+
+                <h2 class="accordion-header " id="flush-headingOne">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    [attr.data-bs-target]="'#flush-collapseOne' + proposal.id" aria-expanded="false"
+                    aria-controls="flush-collapseOne">
+                    {{proposal.name}}
+                  </button>
+                </h2>
+                <div [id]="'flush-collapseOne' + proposal.id" class="accordion-collapse collapse"
+                  aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                  <div class="accordion-body"> {{proposal.description}}
+                    <hr>
+                    <div class="row">
+                      <ul class="list-group list-group-horizontal justify-content-center">
+                        <li class="list-group-item">{{proposal.userName}}</li>
+                        <li class="list-group-item">{{proposal.department}}</li>
+                        <li class="list-group-item">{{proposal.score}} / 50</li>
+                      </ul>
+                    </div>
+
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+
+
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
