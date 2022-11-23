@@ -32,11 +32,11 @@ export class LoginComponent {
     if (response.status === 200) {
       localStorage.setItem('user', JSON.stringify(data));
 
-      if(data.roleId === 2) {
+      if(data.roleId === 14) {
         this.router.navigate(['/user/proposals']);
-      } else if(data.roleId === 3) {
+      } else if(data.roleId === 24) {
         this.router.navigate(['/dnp']);
-      } else if(data.roleId === 4) {
+      } else if(data.roleId === 34) {
         this.router.navigate(['/expert']);
       }
     }

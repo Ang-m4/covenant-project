@@ -26,7 +26,7 @@ export class DnpHomeComponent {
         this.concertations = data;
         this.selectedConcertation = data[0];
 
-        fetch(`${environment.urlBackend}api/concertation/` + this.selectedConcertation.id + '/proposals')
+        fetch(`${environment.urlBackend}/api/concertation/` + this.selectedConcertation.id + '/proposals')
           .then((response) => response.json())
           .then((data) => {
             this.proposals = data;

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router,ActivatedRoute } from '@angular/router';
 import { FormControl, FormGroup } from '@angular/forms';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-user-create-proposal',
@@ -38,7 +39,7 @@ export class UserCreateProposalComponent {
     const proposal = {
       name: this.formProposal.value.name,
       description: this.formProposal.value.description,
-      votationPhaseId: 1,
+      votationPhaseId: 4,
       userId: this.user.id,
       departmentId: this.user.departmentId,
       concertationId: this.concertationId
@@ -46,7 +47,7 @@ export class UserCreateProposalComponent {
 
     console.log(proposal);
 
-    fetch('http://localhost:4000/api/proposals/add', {
+    fetch(`${environment.urlBackend}/api/proposals/add`, {
       method: "POST",
       body: JSON.stringify(proposal),
       headers: { "Content-type": "application/json; charset=UTF-8" }

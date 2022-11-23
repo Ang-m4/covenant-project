@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  urlBackend: 'http://localhost:4000',
+  urlBackend: 'https://covenant-project.herokuapp.com',
 };
 
 /*

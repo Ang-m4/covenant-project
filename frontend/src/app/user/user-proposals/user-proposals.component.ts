@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-user-proposals',
@@ -20,7 +21,7 @@ export class UserProposalsComponent {
       this.router.navigate(['/login']);
     }
 
-    fetch('http://localhost:4000/api/proposals/user/' + this.user.id)
+    fetch(`${environment.urlBackend}/api/proposals/user/` + this.user.id)
       .then((response) => response.json())
       .then((data) => {
         this.userProposals = data;
@@ -29,7 +30,7 @@ export class UserProposalsComponent {
   }
 
   deleteProposal(proposal:any){
-    fetch('http://localhost:4000/api/proposals/' + proposal.id, {
+    fetch(`${environment.urlBackend}/api/proposals/` + proposal.id, {
       method: 'DELETE'
     })
     .then((response) => response.json())
