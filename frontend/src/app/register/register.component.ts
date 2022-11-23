@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-register',
@@ -27,12 +28,12 @@ export class RegisterComponent {
 
   ngOnInit(): void {
     //gets departments from the backend
-    fetch('http://localhost:4000/api/users/departments')
+    fetch(`${environment.urlBackend}/api/users/departments`)
       .then((response) => response.json())
       .then((data) => this.departments = data);
 
     //gets departments from the backend
-    fetch('http://localhost:4000/api/users/segments')
+    fetch(`${environment.urlBackend}/api/users/segments`)
       .then((response) => response.json())
       .then((data) => this.segments = data);
   }
@@ -40,7 +41,7 @@ export class RegisterComponent {
   saveUser() {
 
     //saves user to the backend
-    fetch('http://localhost:4000/api/users/add', {
+    fetch(`${environment.urlBackend}/api/users/add`, {
       method: "POST",
       body: JSON.stringify(this.formSignUp.value),
       headers: { "Content-type": "application/json; charset=UTF-8" }

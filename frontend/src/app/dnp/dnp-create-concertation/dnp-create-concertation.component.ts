@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormControl, FormGroup } from '@angular/forms';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-dnp-create-concertation',
@@ -22,13 +23,13 @@ export class DnpCreateConcertationComponent {
   })
 
   ngOnInit() {
-    fetch('http://localhost:4000/api/concertation/sectors')
+    fetch(`${environment.urlBackend}/api/concertation/sectors`)
       .then((response) => response.json())
       .then((data) => this.sectors = data);
   }
 
   navigateDnp() {
-    fetch('http://localhost:4000/api/concertation/add', {
+    fetch(`${environment.urlBackend}/api/concertation/add`, {
       method: "POST",
       body: JSON.stringify(this.formConcertation.value),
       headers: { "Content-type": "application/json; charset=UTF-8" }

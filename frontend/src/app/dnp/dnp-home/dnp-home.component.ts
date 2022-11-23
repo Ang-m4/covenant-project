@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-dnp-home',
@@ -19,13 +20,13 @@ export class DnpHomeComponent {
   selectedConcertation: any = { name: 'Loading...' };
 
   ngOnInit() {
-    fetch('http://localhost:4000/api/concertation/list')
+    fetch(`${environment.urlBackend}/api/concertation/list`)
       .then((response) => response.json())
       .then((data) => {
         this.concertations = data;
         this.selectedConcertation = data[0];
 
-        fetch('http://localhost:4000/api/concertation/' + this.selectedConcertation.id + '/proposals')
+        fetch(`${environment.urlBackend}api/concertation/` + this.selectedConcertation.id + '/proposals')
           .then((response) => response.json())
           .then((data) => {
             this.proposals = data;
@@ -41,7 +42,7 @@ export class DnpHomeComponent {
   changeSelectedConcertation(concertation: any) {
     this.selectedConcertation = concertation;
 
-    fetch('http://localhost:4000/api/concertation/' + this.selectedConcertation.id + '/proposals')
+    fetch(`${environment.urlBackend}/api/concertation/` + this.selectedConcertation.id + '/proposals')
           .then((response) => response.json())
           .then((data) => {
             this.proposals = data;
@@ -53,7 +54,7 @@ export class DnpHomeComponent {
   }
 
   deleteConcertation(id:number){
-    fetch('http://localhost:4000/api/concertation/' + id, {
+    fetch(`${environment.urlBackend}/api/concertation/` + id, {
       method: "DELETE"
     })
       .then(response => response.json())

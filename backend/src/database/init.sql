@@ -1,4 +1,4 @@
--- Active: 1668645562898@@127.0.0.1@3306@covenant_database
+-- Active: 1665423805265@@127.0.0.1@3306@covenant_database
 DROP TABLE Proposals;
 DROP TABLE Users;
 DROP TABLE Departments;
@@ -178,7 +178,9 @@ INSERT INTO Segments (segmentName, sectorId) VALUES ('Comercio', 1);
 INSERT INTO Segments (segmentName, sectorId) VALUES ('Experto', 13);
 
 INSERT INTO Users (name, email, password, roleId, segmentId, departmentId) VALUES ('Juan Garcia', 'juan@abc.com', '123', 1, null, null);
+INSERT INTO Users (name, email, password, roleId, segmentId, departmentId) VALUES ('Pepita Perez', 'pepita@abc.com','123', 2, 3, 4);
+INSERT INTO Users (name, email, password, roleId, segmentId, departmentId) VALUES ('Manuel Beltran', 'pepita@abc.com','123', 2, 3, 4);
 INSERT INTO Users (name, email, password, roleId, segmentId, departmentId) VALUES ('Maria Perez', 'maria@abc.com','123', 4,  41, 9);
 INSERT INTO Users (name, email, password, roleId, segmentId, departmentId) VALUES ('Pedro Lopez', 'pedro@abc.com','123', 4, 41,6);
 INSERT INTO Users (name, email, password, roleId, segmentId, departmentId) VALUES ('DNP', 'dnp@abc.gov.co','123', 3, null, null);
-INSERT INTO Users (name, email, password, roleId, segmentId, departmentId) VALUES ('Pepita Perez', 'pepita@abc.com','123', 2, 3, 4);
+

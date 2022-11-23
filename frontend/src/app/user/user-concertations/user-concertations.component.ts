@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-user-concertations',
@@ -24,13 +25,13 @@ export class UserConcertationsComponent {
       this.router.navigate(['/login']);
     }
 
-    fetch('http://localhost:4000/api/concertation/user/' + this.user.id)
+    fetch(`${environment.urlBackend}/api/concertation/user/` + this.user.id)
       .then((response) => response.json())
       .then((data) => {
         this.concertations = data;
         this.selectedConcertation = this.concertations[0];
 
-        fetch('http://localhost:4000/api/concertation/' + this.selectedConcertation.id + '/proposals')
+        fetch(`${environment.urlBackend}/api/concertation/` + this.selectedConcertation.id + '/proposals')
           .then((response) => response.json())
           .then((data) => {
             this.proposals = data;
@@ -46,7 +47,7 @@ export class UserConcertationsComponent {
   changeSelectedConcertation(concertation: any) {
     this.selectedConcertation = concertation;
 
-    fetch('http://localhost:4000/api/concertation/' + this.selectedConcertation.id + '/proposals')
+    fetch(`${environment.urlBackend}/api/concertation/` + this.selectedConcertation.id + '/proposals')
       .then((response) => response.json())
       .then((data) => {
         this.proposals = data;
@@ -55,7 +56,7 @@ export class UserConcertationsComponent {
 
   validateVotation(proposal: any) {
 
-    fetch('http://localhost:4000/api/proposals/califications/' + proposal.id)
+    fetch(`${environment.urlBackend}/api/proposals/califications/` + proposal.id)
       .then((response) => response.json())
       .then((data) => {
         data.forEach((calification: any) => {
@@ -74,7 +75,7 @@ export class UserConcertationsComponent {
       userId: this.user.id
     };
 
-    fetch('http://localhost:4000/api/proposals/vote', {
+    fetch(`${environment.urlBackend}/api/proposals/vote`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(calification)

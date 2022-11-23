@@ -24,9 +24,8 @@ const routes: Routes = [
   { path: 'dnp', component: DnpHomeComponent },
   { path: 'dnp/new/concertation', component: DnpCreateConcertationComponent },
   { path: 'expert', component: ExpertHomeComponent },
+  { path: '', redirectTo: 'login', pathMatch: 'full' }
 
-
-  // { path: '', redirectTo: '/login', pathMatch: 'full' }
 ];
 
 @NgModule({

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-login',
@@ -17,11 +18,10 @@ export class LoginComponent {
   constructor(private router: Router) { }
 
   ngOnInit() {
-
   }
 
   async validateLogin() {
-    const response = await fetch('http://localhost:4000/api/login', {
+    const response = await fetch(`${environment.urlBackend}/api/login`, {
       method: "POST",
       body: JSON.stringify(this.loginForm.value),
       headers: { "Content-type": "application/json; charset=UTF-8" }
