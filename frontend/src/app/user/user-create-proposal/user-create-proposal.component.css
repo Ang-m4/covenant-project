@@ -1,0 +1,15 @@
+.container{
+  margin-top: 5vh;
+  width: 60%;
+}
+
+.concertation-display{
+  height: max-content;
+}
+
+textarea{
+  height: 15vh;
+}
+.row {
+  margin-top: 2vh;
+}

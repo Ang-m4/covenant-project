@@ -4,6 +4,7 @@ import morgan from "morgan";
 import userRoutes from "./routes/user.routes"
 import concertationRoutes from "./routes/concertation.routes"
 import loginRoutes from "./routes/login.routes"
+import proposalRoutes from "./routes/proposal.routes"
 
 var cors = require('cors')
 const app = express();
@@ -21,5 +22,6 @@ app.use(express.json());
 app.use("/api", loginRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/concertation", concertationRoutes);
+app.use("/api/proposals", proposalRoutes);
 
 export default app;

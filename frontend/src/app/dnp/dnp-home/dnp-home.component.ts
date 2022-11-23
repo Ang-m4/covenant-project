@@ -48,4 +48,18 @@ export class DnpHomeComponent {
           });
   };
 
+  exit(){
+    this.router.navigate(['/login']);
+  }
+
+  deleteConcertation(id:number){
+    fetch('http://localhost:4000/api/concertation/' + id, {
+      method: "DELETE"
+    })
+      .then(response => response.json())
+      .then(json => {console.log(json); this.ngOnInit();})
+      .catch(err => console.log(err));
+
+  }
+
 }

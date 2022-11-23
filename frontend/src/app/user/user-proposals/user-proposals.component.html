@@ -1,0 +1,35 @@
+<div class="row justify-content-center" id="proposals">
+
+  <div class="col col-md-6">
+    <div class="row">
+
+      <div class="col">
+        <h5> Lista de {{user.name}}: </h5>
+      </div>
+      <hr>
+
+    </div>
+    <div class="row">
+
+      <div class="card-group">
+        <div *ngFor="let proposal of userProposals" class="col col-md-4">
+          <div class="card">
+
+            <div class="card-body">
+              <h5 class="card-title">{{proposal.name}}</h5>
+              <p class="card-text">{{proposal.description}}</p>
+            </div>
+
+            <div class="card-footer justify-content-between">
+              <div style="width: 65%; display:inline-block">
+                <small class="text-muted">{{proposal.score}}/50</small>
+              </div>
+              <button (click)="deleteProposal(proposal)" class="btn btn-danger btn-sm" style="width: 35%;">Eliminar</button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>

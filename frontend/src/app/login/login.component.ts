@@ -30,8 +30,10 @@ export class LoginComponent {
     const result = await response.json();
     const data = result[0];
     if (response.status === 200) {
+      localStorage.setItem('user', JSON.stringify(data));
+
       if(data.roleId === 2) {
-        this.router.navigate(['/user']);
+        this.router.navigate(['/user/proposals']);
       } else if(data.roleId === 3) {
         this.router.navigate(['/dnp']);
       } else if(data.roleId === 4) {

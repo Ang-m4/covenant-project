@@ -7,6 +7,7 @@ DROP TABLE Segments;
 DROP TABLE Concertation;
 DROP TABLE Sectors;
 DROP TABLE Votationphases;
+DROP TABLE Califications;
 CREATE TABLE Roles (
     id int NOT NULL AUTO_INCREMENT,
     roleName Varchar(255),
@@ -76,6 +77,16 @@ CREATE TABLE Proposals (
     FOREIGN KEY(votationPhaseId) REFERENCES VotationPhases(id),
     FOREIGN KEY(userId) REFERENCES Users(id),
     FOREIGN KEY(departmentId) REFERENCES Departments(id)
+);
+
+CREATE TABLE Califications (
+    id int NOT NULL AUTO_INCREMENT,
+    proposalId int,
+    userId int,
+    score int,
+    PRIMARY KEY (id),
+    FOREIGN KEY(proposalId) REFERENCES Proposals(id),
+    FOREIGN KEY(userId) REFERENCES Users(id)
 );
 
 INSERT INTO Roles (roleName, roleDescription) VALUES ('Administrator', 'Administrador del sistema');

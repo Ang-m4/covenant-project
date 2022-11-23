@@ -1,0 +1,35 @@
+<div class="container-fluid">
+
+  <div class="container">
+
+    <div class="row justify-content-center">
+      <div class="col col-md-8">
+        <h5> Nueva Propuesta:</h5>
+        <div class="card concertation-display">
+          <div class="card-body">
+            <form [formGroup]="formProposal">
+              <div class="row">
+                <div class="col">
+                  <h6 class="card-subtitle mb-2 text-muted">Name:</h6>
+                  <input type="text" class="form-control form-control-sm" formControlName="name">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <h6 class="card-subtitle mb-2 text-muted">Descripcion:</h6>
+                  <textarea class="form-control form-control-sm" formControlName="description"></textarea>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        {{formProposal.value | json}}
+
+        <button class="btn btn-dark" style="margin-top:10px" (click)="navigateUser()"> Crear</button>
+      </div>
+    </div>
+
+  </div>
+
+</div>

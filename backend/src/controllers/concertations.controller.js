@@ -5,8 +5,24 @@ const getProposalsByConcertation = async (req, res) => {
     try {
         const connection = await getConnection();
         const { id } = req.params;
-        const result = await connection.query('SELECT p.id, p.name, p.description , u.name as userName, p.score, d.name as department FROM proposals p  INNER JOIN votationPhases v ON p.votationPhaseiD = v.id INNER JOIN users u ON p.userId = u.id INNER JOIN departments d ON p.departmentId = d.id WHERE concertationId = ?', [id]);
+        const result = await connection.query('SELECT p.id, p.name, p.description, u.name as userName, p.score, d.name as department FROM proposals p  INNER JOIN votationPhases v ON p.votationPhaseId = v.id INNER JOIN users u ON p.userId = u.id INNER JOIN departments d ON p.departmentId = d.id WHERE concertationId = ?', [id]);
         // const result = await connection.query('SELECT p.id, p.name, p.description , u.name as userName, p.score FROM proposals p  INNER JOIN votationPhases v ON p.votationPhaseiD = v.id INNER JOIN users u ON p.userId = u.id WHERE concertationId = ?', [id]);
+        res.status(200).json(result);
+
+    } catch (error) {
+        console.log(error);
+        res.status(500);
+        res.send(error.message);
+    }
+
+};
+
+const getConcertationsByUser = async (req, res) => {
+
+    try {
+        const connection = await getConnection();
+        const { id } = req.params;
+        const result = await connection.query('SELECT c.id, c.name , c.description, isOpen, s.name as sector, apertureDate, v.name as votationPhase FROM concertation c INNER JOIN Sectors s ON c.sectorId = s.id INNER JOIN VotationPhases v ON c.votationPhaseId = v.id INNER JOIN segments seg ON seg.sectorId = s.id INNER JOIN users u ON u.segmentId= seg.id WHERE u.id = ?', [id]);
         res.status(200).json(result);
 
     } catch (error) {
@@ -14,7 +30,7 @@ const getProposalsByConcertation = async (req, res) => {
         res.send(error.message);
     }
 
-};
+}
 
 const getConcertations = async (req, res) => {
 
@@ -100,5 +116,6 @@ export const methods = {
     createConcertation,
     getConcertationById,
     deleteConcertation,
-    getSectors
+    getSectors,
+    getConcertationsByUser
 };
